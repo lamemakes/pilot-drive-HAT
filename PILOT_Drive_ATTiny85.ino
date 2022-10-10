@@ -1,3 +1,5 @@
+// Important! Uses https://github.com/rambo/TinyWire TinyWireS library.
+
 #include <avr/io.h>
 #include <TinyWireS.h>
 #ifndef TWI_RX_BUFFER_SIZE
