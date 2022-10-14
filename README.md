@@ -17,8 +17,8 @@ This repo contains all of the hardware for PILOT Drive - mainly STL, KiCad schem
 
 The design has been breadboard tested, but lacks actual PCB contruction. This will come very soon, and will ideally be demo'd at the Rochester Maker Faire.
 
-_The Schematic of the HAT_
-![image](https://user-images.githubusercontent.com/83597346/194783449-8d1d7ad2-8d4d-4943-bef0-ff04b8cdca67.png)
+_The Schematic of the HAT that will be make a lot cleaner soon_
+![image](https://user-images.githubusercontent.com/83597346/195840342-5cd33d83-0b57-4ff3-bd44-b80830ebc2bc.png)
  
  
  ## Build of Materials
@@ -52,3 +52,4 @@ PILOT Drive hardware is a **MAJOR** WIP! More will come soon.
 
 _My "finished" build_
 ![PILOT_Drive](https://user-images.githubusercontent.com/83597346/194785200-4c0141d9-606c-4f25-9de7-094e111a38c3.jpg)
+
