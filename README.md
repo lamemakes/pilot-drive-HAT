@@ -38,6 +38,11 @@ _The Schematic of the HAT_
 
 The 3D files were designed for mouting in the Honda Element head unit space, with all of the components of my BOM to make everything one discrete package.
 
+
+## ATTINY85 Code
+
+Please note the arduino code is functional but temporary, have my sights on being fully C soon.
+
 <pre>
 
 
