@@ -41,14 +41,11 @@ The 3D files were designed for mouting in the Honda Element head unit space, wit
 
 ## ATTINY85 Code
 
-Please note the arduino code is functional but temporary, have my sights on being fully C soon.
-
-<pre>
+Please note the arduino code is functional but temporary, have my sights on being fully "vanilla" C soon.
 
 
-</pre>
-
-PILOT Drive hardware is a **MAJOR** WIP! More will come soon.
+## NOTES:
+- PILOT Drive hardware is a **MAJOR** WIP! More will come soon.
 
 _My "finished" build_
 ![PILOT_Drive](https://user-images.githubusercontent.com/83597346/194785200-4c0141d9-606c-4f25-9de7-094e111a38c3.jpg)
