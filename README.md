@@ -46,6 +46,8 @@ Please note the arduino code is functional but temporary, have my sights on bein
 
 ## NOTES:
 - PILOT Drive hardware is a **MAJOR** WIP! More will come soon.
+- If building the HAT schematic, sections listed as "ID EEPROM" & "RPi 5v ZVD" are recommended by Raspberry Pi [Hat Standards](https://github.com/raspberrypi/hats/blob/master/designguide.md) but aren't required to make the circuit function.
+- The schematic's +5v screw terminal in refers to the 12v to 5v buck converter (see BOM). 
 
 _My "finished" build_
 ![PILOT_Drive](https://user-images.githubusercontent.com/83597346/194785200-4c0141d9-606c-4f25-9de7-094e111a38c3.jpg)
