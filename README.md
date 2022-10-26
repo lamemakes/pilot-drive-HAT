@@ -20,7 +20,7 @@ The design has been breadboard tested, but lacks actual PCB contruction. This wi
 _The Schematic of the HAT_
 ![image](https://user-images.githubusercontent.com/83597346/198093957-4e250405-35cb-4f44-a056-c505167d59f6.png)
  
-_HAT PCB rendering_
+_HAT PCB rendering (with *MOST* of the needed STEP files)_
 ![image](https://user-images.githubusercontent.com/83597346/198093405-7d286601-3e7c-4de6-9d54-55a776eca015.png)
 ![image](https://user-images.githubusercontent.com/83597346/198093722-e21cc907-e123-458c-897d-2e77b1140fd2.png)
 ![image](https://user-images.githubusercontent.com/83597346/198093887-36414013-3995-44c0-a988-c09d25f34e27.png)
