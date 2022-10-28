@@ -2,7 +2,7 @@
 
 This repo contains all of the hardware for PILOT Drive - mainly STL, KiCad schematic + PCB files, and the code used for the ATTiny85 functionality.
 
-**NOTE:** The 3D files & Build of Materials (BOM) are for my specific build. Your milage may vary as you modify this to fit your own needs. The HAT should remain the same over most builds.
+**NOTE:** The 3D files & Bill of Materials (BOM) are for my specific build. Your milage may vary as you modify this to fit your own needs. The HAT should remain the same over most builds.
 
 
 ## The PILOT Drive HAT
@@ -21,13 +21,13 @@ _The Schematic of the HAT_
 ![image](https://user-images.githubusercontent.com/83597346/198093957-4e250405-35cb-4f44-a056-c505167d59f6.png)
  
 _HAT PCB rendering (with *MOST* of the needed STEP files)_
-![image](https://user-images.githubusercontent.com/83597346/198093405-7d286601-3e7c-4de6-9d54-55a776eca015.png)
-![image](https://user-images.githubusercontent.com/83597346/198093722-e21cc907-e123-458c-897d-2e77b1140fd2.png)
-![image](https://user-images.githubusercontent.com/83597346/198093887-36414013-3995-44c0-a988-c09d25f34e27.png)
+![image](https://user-images.githubusercontent.com/83597346/198705265-fd5cab69-f8d3-47a8-b64a-d70a89c94aca.png)
+![image](https://user-images.githubusercontent.com/83597346/198705488-999e5fd1-6c22-485b-a0f8-3a849e57221d.png)
+![image](https://user-images.githubusercontent.com/83597346/198705817-d133336c-e3a6-4511-a924-25812e902aa0.png)
 
 
  
- ## Build of Materials
+ ## Bill of Materials
  
  My build consists of:
  - [Raspberry Pi 4 B 4GB RAM](https://www.adafruit.com/product/4296)
