@@ -38,7 +38,7 @@ void setup() {
   TinyWireS.begin(SLAVE_ADDR); 
   TinyWireS.onReceive(receiveEvent); // what to do when receiving data
 
-  digitalWrite(RELAY_OUT, HIGH); // Turn on the relay on startup
+  digitalWrite(RELAY_OUT, HIGH); // Turn on the MOSFET on startup
 }
 
 void loop() {
