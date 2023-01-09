@@ -56,3 +56,5 @@ This firmware requires the [avrdude](https://github.com/avrdudes/avrdude) toolch
 - The PILOT Drive HAT is a **MAJOR** WIP! More will come soon.
 - If building the HAT, "ID EEPROM" is recommended by Raspberry Pi [Hat Standards](https://github.com/raspberrypi/hats/blob/master/designguide.md) but aren't required to make the circuit function.
 - The schematic's +5v screw terminal in refers to an external 12v to 5v buck converter. 
+- KiCad library files are coming, along with 3D files for the components. 
+- _I know, I know_. The firmware is flashing an LED right now using I2C. The adapted version is coming in the next 1-2 days at time of writing.
