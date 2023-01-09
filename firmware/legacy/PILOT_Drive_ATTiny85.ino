@@ -1,5 +1,3 @@
-// Important! Uses https://github.com/rambo/TinyWire TinyWireS library.
-
 #include <avr/io.h>
 #include <TinyWireS.h>
 #ifndef TWI_RX_BUFFER_SIZE
@@ -12,7 +10,7 @@
 volatile uint8_t waitPeriod = 30; // Time, in secs before the controller turns off the relay when ACC is absent. Default is 30s.
 volatile bool newData; // I2C var to check for new data on the line
 const int RELAY_OUT = 4;
-const int ACC_IN = 3;
+const int ACC_IN = 5;
 const int SLAVE_ADDR = 0x20; // Slave address, adjust this as needed, just make sure the Pi has the same value
 
 bool accState;
@@ -38,7 +36,7 @@ void setup() {
   TinyWireS.begin(SLAVE_ADDR); 
   TinyWireS.onReceive(receiveEvent); // what to do when receiving data
 
-  digitalWrite(RELAY_OUT, HIGH); // Turn on the MOSFET on startup
+  digitalWrite(RELAY_OUT, HIGH); // Turn on the relay on startup
 }
 
 void loop() {

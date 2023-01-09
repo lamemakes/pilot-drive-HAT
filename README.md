@@ -1,60 +1,58 @@
 # The hardware of PILOT Drive
 
-This repo contains all of the hardware for PILOT Drive - mainly STL, KiCad schematic + PCB files, and the code used for the ATTiny85 functionality.
-
-**NOTE:** The 3D files & Bill of Materials (BOM) are for my specific build. Your milage may vary as you modify this to fit your own needs. The HAT should remain the same over most builds.
+This repo contains all of the hardware for PILOT Drive - mainly KiCad schematic + PCB files, and the code used for the ATtiny85 functionality.
 
 
-## The PILOT Drive HAT
+## The PILOT Drive HAT MKII
 
 (**TLDR**) The features of the HAT are:
 - Optocouplers to isolate & read the ACC +12v & Headlight 12v+ lines
-- Via I2C the Raspberry Pi communicates with the ATTiny85 to set the shutdown time
-- When there is no ACC +12v detected from the Pi or the ATTTiny, the Pi begins a safe shutdown and the ATTiny begins a countdown (Longer than it would take the Pi to shutdown) to kill the power to the BAT +12v. 
+- Via I2C the Raspberry Pi communicates with the ATtiny85 to set the shutdown time
+- When there is no ACC +12v detected from the Pi or the ATtiny, the Pi begins a safe shutdown and the ATtiny begins a countdown (Longer than it would take the Pi to shutdown) to kill the power to the BAT +12v. 
 - The headlight detection optocoupler is connected to the RPi's GPIO pins
 - An I2C connected RTC is included to allow the Pi to keep time without network connectivity.
+- Input for general purpose external buttons
 - (Mostly) Conforms to the standards of the [Raspberry Pi HAT specifications](https://github.com/raspberrypi/hats), as it includes an ID EEPROM and follows most design specs, but more needs to be implemented
 
-The design has been breadboard tested, but lacks actual PCB contruction. This will come very soon, and will ideally be demo'd at the Rochester Maker Faire.
+### HAT MKI _[& lessons learned]_
 
-_The Schematic of the HAT_
-![image](https://user-images.githubusercontent.com/83597346/198706816-ad278352-db1b-4e47-9c6d-ef9652a6b35e.png)
+The original MKI HAT came & went. I would call it about 50% functional - as it kept time well and provided for a clean way to route power to the Pi, along with interface with buttons. It didn't work for it's original purpose though. This was due to a few reasons:
+- Using tantalum caps instead of electrolytic for the power supply
+- Needed decoupling caps!
+- Switching the entire ground via an N-FET. Speaks for itself.
+- Needed TVS diodes!
  
-_HAT PCB rendering (with *MOST* of the needed STEP files)_
-![image](https://user-images.githubusercontent.com/83597346/198705265-fd5cab69-f8d3-47a8-b64a-d70a89c94aca.png)
-![image](https://user-images.githubusercontent.com/83597346/198705488-999e5fd1-6c22-485b-a0f8-3a849e57221d.png)
-![image](https://user-images.githubusercontent.com/83597346/198705817-d133336c-e3a6-4511-a924-25812e902aa0.png)
+_Fab'd MKI PCBs_
+![image](images/PILOT_Drive_HAT_MKI.jpg)
 
+# HAT MKII
 
- 
- ## Bill of Materials
- 
- My build consists of:
- - [Raspberry Pi 4 B 4GB RAM](https://www.adafruit.com/product/4296)
- - [7" HDMI Touchscreen](https://www.amazon.com/Kuman-Capacitive-Display-Raspberry-SC7B)
- - [Powered USB Hub](https://www.amazon.com/gp/product/B083XTKV8V) - Might be integrated into the HAT later, not sure
- - [12v to 5v 10A buck converter](https://www.amazon.com/gp/product/B01M03288J) - Used for Pi, USB Hub & Touch Screen
- - [Male HDMI to mini HDMI flex cable](https://www.amazon.com/gp/product/B01367WEI4)
- - [USB Sound Card](https://www.amazon.com/gp/product/B00OJ5AV8I)
- - [HDMI to Pi Camera](https://www.amazon.com/gp/product/B06XDNBM63) - Allows for extension of the Pi Camera cable for backup camera
- - [Fisheye Pi Camera](https://www.amazon.com/gp/product/B076MPL9P1) - For backup camera
+This HAT has yet to be fab'd or even be arranged into a PCB file. This will certainly be coming at the latest of March, as it needs to be ready for the Syracuse Maker Faire! KiCad files can be found in the "hardware" directory.
 
- 
-## STL Files
+_The Schematic of the HAT MKII_
+![image](images/schematic.png)
 
-The 3D files were designed for mouting in the Honda Element head unit space, with all of the components of my BOM to make everything one discrete package.
+## ATtiny85 Code
 
+### C (current) version
 
-## ATTINY85 Code
+Found in the "firmware" folder, the current C code is based on the ATtiny85 & it's Universal Serial Interface (USI). Using I2C, the Pi can communicate the the ATtiny (default slave address is 0x20) to send a **one byte** integer. This single integer represents the time to wait before the ATtiny pulls the power on the entire circuit after it detects the vehicle power off.
 
-Please note the arduino code is functional but temporary, have my sights on being fully "vanilla" C soon.
+As _always_ the firmware is a WIP, and the C version isn't fully functional. I can't quite clamp why, but at the time of writing the second ACK from the ATtiny (after the one byte int) always fails. Addressing works & ACKS, the ATtiny recieves the timeout number and functions with it, but the master sees it as a failed transmission. I feel like I'm close to a fix, but stuck now.
+
+### Arduino (legacy) version
+
+The original firmware was written in Arduino with TinyWireS, but I believed getting a little more "bare metal" would've allowed for a lot more (needed) C & embedded learning, and allowing for quick speeds. That code can be found under "legacy" in the "firmware" folder for use until the C version is conpleted & smoothed over.
+
+### To flash to the ATtiny85
+
+This firmware requires the [avrdude](https://github.com/avrdudes/avrdude) toolchain to flash the ATtiny. With avrdude installed and an ICSP programmer connected to your ATtiny & computer, the only step left is to configure the following Makefile variables:
+- ```PORT```: The serial port the ICSP device is connected to, defaults to ```/dev/ttyUSB0```
+- ```AVRDUDE_CONF```: The path to your avrdude config, defauls to ```/etc/avrdude/avrdude.conf```
+- ```CLK_SPEED```: Only configure if using an ATtiny85 clock speed other than 8 MHz.
 
 
 ## NOTES:
-- PILOT Drive hardware is a **MAJOR** WIP! More will come soon.
-- If building the HAT schematic, sections listed as "ID EEPROM" & "RPi 5v ZVD" are recommended by Raspberry Pi [Hat Standards](https://github.com/raspberrypi/hats/blob/master/designguide.md) but aren't required to make the circuit function.
-- The schematic's +5v screw terminal in refers to the 12v to 5v buck converter (see BOM). 
-
-_My "finished" build_
-![PILOT_Drive](https://user-images.githubusercontent.com/83597346/194785200-4c0141d9-606c-4f25-9de7-094e111a38c3.jpg)
-
+- The PILOT Drive HAT is a **MAJOR** WIP! More will come soon.
+- If building the HAT, "ID EEPROM" is recommended by Raspberry Pi [Hat Standards](https://github.com/raspberrypi/hats/blob/master/designguide.md) but aren't required to make the circuit function.
+- The schematic's +5v screw terminal in refers to an external 12v to 5v buck converter. 
