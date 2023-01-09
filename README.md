@@ -42,7 +42,7 @@ As _always_ the firmware is a WIP, and the C version isn't fully functional. I c
 
 ### Arduino (legacy) version
 
-The original firmware was written in Arduino with TinyWireS, but I believed getting a little more "bare metal" would've allowed for a lot more (needed) C & embedded learning, and allowing for quick speeds. That code can be found under "legacy" in the "firmware" folder for use until the C version is conpleted & smoothed over.
+The original firmware was written in Arduino with TinyWireS, but I believed getting a little more "bare metal" would've allowed for a lot more (needed) C & embedded learning, and allowing for quick speeds. That code can be found under "legacy" in the "firmware" folder for use until the C version is completed & smoothed over.
 
 ### To flash to the ATtiny85
 
