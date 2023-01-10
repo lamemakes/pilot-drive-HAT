@@ -1,14 +1,14 @@
-#include <avr/io.h>
+#include <avr/io.h>PORTB
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include "HAT_MKII.h"
 
 
 /*
-PB5 = Status LED                                                | Output
 PB4 = MOSFET control (high is powered, low kills the circuit)   | Output
-PB3 = Accessory Wire Optocoupler (pulled low when active)       | Input                                           | Output
+PB3 = Accessory Wire Optocoupler (pulled low when active)       | Input
 PB2 = SCL                                                       | Input
+PB1 = Status LED                                                | Output
 PB0 = SDA                                                       | Input
 
 INIT_DDRB shifts bits accordingly to input/output.

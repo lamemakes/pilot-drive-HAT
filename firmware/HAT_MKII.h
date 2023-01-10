@@ -12,6 +12,6 @@ int initDDRB = (1 << FET_CTL) | (0 << ACC_OPTO) | (0 << SCL) | (1 << STATUS_LED)
 int byte; // Used to read the byte after the address byte
 int read_data; // Used when data is address to slave
 
-int timeout = DEFAULT_TIMEOUT; // Value recieved from master
+int timeout = DEFAULT_TIMEOUT; // Value recieved from master, defaults to DEFAULT_TIMEOUT in case no I2C value is recieved.
 
 int data_recieved; // Flashes the LED if data was recieved
