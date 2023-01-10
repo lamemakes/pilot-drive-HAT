@@ -27,7 +27,7 @@ _Fab'd MKI PCBs_
 
 # HAT MKII
 
-This HAT has yet to be fab'd or even be arranged into a PCB file. This will certainly be coming at the latest of March, as it needs to be ready for the Syracuse Maker Faire! KiCad files can be found in the "hardware" directory.
+This HAT has yet to be fab'd or even be arranged into a PCB file (but has been fully breadboard tested!). This will certainly be coming at the latest of March, as it needs to be ready for the Syracuse Maker Faire! KiCad files can be found in the "hardware" directory.
 
 _The Schematic of the HAT MKII_
 ![image](images/schematic.png)
