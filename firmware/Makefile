@@ -18,7 +18,7 @@ $(FILE).hex: $(FILE).elf
 $(FILE).elf: $(FILE).o
 	avr-gcc -DF_CPU=$(CLK_SPEED) -mmcu=$(MC) -o $(FILE).elf $(FILE).o
 
-$(FILE).o: $(FILE).c
+$(FILE).o: $(FILE).c $(FILE).h
 	avr-gcc -Os -DF_CPU=$(CLK_SPEED) -mmcu=$(MC) -c $(FILE).c
 
 

@@ -36,7 +36,7 @@ _The Schematic of the HAT MKII_
 
 ### C (current) version
 
-Found in the "firmware" folder, the current C code is based on the ATtiny85 & it's Universal Serial Interface (USI). Using I2C, the Pi can communicate the the ATtiny (default slave address is 0x20) to send a **one byte** integer. This single integer represents the time to wait before the ATtiny pulls the power on the entire circuit after it detects the vehicle power off.
+Found in the "firmware" folder, the current C code is based on the ATtiny85 & it's Universal Serial Interface (USI). Using I2C, the Pi can communicate the the ATtiny (default slave address is 0x20) to send a **one byte** integer (<= 255). This single integer represents the time to wait before the ATtiny pulls the power on the entire circuit after it detects the vehicle power off.
 
 As _always_ the firmware is a WIP, and the C version isn't fully functional. I can't quite clamp why, but at the time of writing the second ACK from the ATtiny (after the one byte int) always fails. Addressing works & ACKS, the ATtiny recieves the timeout number and functions with it, but the master sees it as a failed transmission. I feel like I'm close to a fix, but stuck now.
 
@@ -51,10 +51,26 @@ This firmware requires the [avrdude](https://github.com/avrdudes/avrdude) toolch
 - ```AVRDUDE_CONF```: The path to your avrdude config, defauls to ```/etc/avrdude/avrdude.conf```
 - ```CLK_SPEED```: Only configure if using an ATtiny85 clock speed other than 8 MHz.
 
+### To send a timeout from to the ATtiny
+
+This will be integrated in the [PILOT Drive software](https://github.com/lamemakes/PILOT-Drive), but an extremely simple Python script can be made to send the required timeout to a specified address, as can be seen in the example below (tested on an RPi 4):
+
+```
+import smbus
+
+addr = 0x20 # Send to address 0x20
+time = 15   # A timeout of 15 seconds
+
+bus = smbus.SMBus(1)
+
+bus.write_byte(addr, time)
+```
+
+At the time of writing, this script will seemingly fail, as it can't recieve a proper ACK from the ATtiny. Regardless, the ATtiny will recieve the time and respond accordingly.
+
 
 ## NOTES:
 - The PILOT Drive HAT is a **MAJOR** WIP! More will come soon.
 - If building the HAT, "ID EEPROM" is recommended by Raspberry Pi [Hat Standards](https://github.com/raspberrypi/hats/blob/master/designguide.md) but aren't required to make the circuit function.
 - The schematic's +5v screw terminal in refers to an external 12v to 5v buck converter. 
 - KiCad library files are coming, along with 3D files for the components. 
-- _I know, I know_. The firmware is flashing an LED right now using I2C. The adapted version is coming in the next 1-2 days at time of writing.
