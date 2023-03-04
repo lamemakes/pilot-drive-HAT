@@ -21,16 +21,20 @@ The original MKI HAT came & went. I would call it about 50% functional - as it k
 - Needed decoupling caps!
 - Switching the entire ground via an N-FET. Speaks for itself.
 - Needed TVS diodes!
- 
-_Fab'd MKI PCBs_
-![image](images/PILOT_Drive_HAT_MKI.jpg)
+
 
 # HAT MKII
 
-This HAT has yet to be fab'd or even be arranged into a PCB file (but has been fully breadboard tested!). This will certainly be coming at the latest of March, as it needs to be ready for the Syracuse Maker Faire! KiCad files can be found in the "hardware" directory.
+The MKII prototype was fab'd by PCBWAY, and so far has proven to be fully functional! The new improvements did volumes for the usablity, debugging, and protection of the circuit & the Pi. If you're interested, come see it's debut at the 2023 Syracuse Maker Faire on April 1st!
 
 _The Schematic of the HAT MKII_
 ![image](images/schematic.png)
+
+_Fresh MKII proto boards_
+![image](images/HAT_Boards-MKII-Proto.jpg)
+
+_Populated MKII proto board_
+![image](images/HAT_Populated-MKII-Proto.jpg)
 
 ## ATtiny85 Code
 
@@ -70,7 +74,8 @@ At the time of writing, this script will seemingly fail, as it can't recieve a p
 
 
 ## NOTES:
-- The PILOT Drive HAT is a **MAJOR** WIP! More will come soon.
+
 - If building the HAT, "ID EEPROM" is recommended by Raspberry Pi [Hat Standards](https://github.com/raspberrypi/hats/blob/master/designguide.md) but aren't required to make the circuit function.
 - The schematic's +5v screw terminal in refers to an external 12v to 5v buck converter. 
-- KiCad library files are coming, along with 3D files for the components. 
+- KiCad library files are coming, along with 3D files for the components.
+- If you're building this HAT or something similar, reach out! Would love to hear your stories.
