@@ -2717,11 +2717,11 @@
     (attr board_only exclude_from_pos_files exclude_from_bom)
     (fp_text reference "G***" (at 0 0) (layer "F.SilkS") hide
       (effects (font (size 1.524 1.524) (thickness 0.3)))
-      (tstamp bc491dfa-c589-4407-bb78-3cc2dac0b441)
+      (tstamp 9fbd129b-0886-47e3-85ed-185248750184)
     )
     (fp_text value "LOGO" (at 0.75 0) (layer "F.SilkS") hide
       (effects (font (size 1.524 1.524) (thickness 0.3)))
-      (tstamp 5088c6ed-ce05-40eb-8257-574fe50c4ee5)
+      (tstamp 4f407834-b160-4390-98f0-869000ed96f8)
     )
     (fp_poly (pts
         (xy 0.126227 -0.360491)
@@ -2933,7 +2933,7 @@
         (xy 0.084866 -0.356601)
         (xy 0.098531 -0.360246)
         (xy 0.112342 -0.361541)
-      ) (layer "F.SilkS") (width 0) (fill solid) (tstamp 5f2daae2-c8a2-411e-8247-d3e58cdb043d))
+      ) (layer "F.SilkS") (width 0) (fill solid) (tstamp c7e70456-3d5c-4309-8ab0-ed0b04d10802))
   )
 
   (footprint "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" (layer "F.Cu")
@@ -5056,7 +5056,7 @@
   (gr_text "RST" (at 101.6144 135.6996) (layer "F.SilkS") (tstamp 6711b191-bfb3-4f48-80e1-b93358fe676d)
     (effects (font (size 0.6 0.6) (thickness 0.15)))
   )
-  (gr_text "MOSI" (at 106.7644 135.6996) (layer "F.SilkS") (tstamp 734eccd4-0b9a-416a-be9e-3452d5c69b9d)
+  (gr_text "MISO" (at 106.7644 135.6996) (layer "F.SilkS") (tstamp 734eccd4-0b9a-416a-be9e-3452d5c69b9d)
     (effects (font (size 0.6 0.6) (thickness 0.15)))
   )
   (gr_text "WP\n" (at 100.6644 103.6496) (layer "F.SilkS") (tstamp 8684ab8c-574c-41e4-bdb4-e197158c49ca)
