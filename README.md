@@ -25,7 +25,7 @@ The original MKI HAT came & went. I would call it about 50% functional - as it k
 
 # HAT MKII
 
-The MKII prototype was fab'd by PCBWAY, and so far has proven to be fully functional! The new improvements did volumes for the usablity, debugging, and protection of the circuit & the Pi. If you're interested, come see it's debut at the 2023 Syracuse Maker Faire on April 1st!
+The MKII prototype was fab'd by [PCBWay](https://www.pcbway.com/), and so far has proven to be fully functional! The new improvements did volumes for the usablity, debugging, and protection of the circuit & the Pi. If you're interested, come see it's debut at the 2023 Syracuse Maker Faire on April 1st!
 
 _The Schematic of the HAT MKII_
 ![image](images/schematic.png)
