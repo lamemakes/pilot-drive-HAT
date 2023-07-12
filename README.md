@@ -72,6 +72,46 @@ bus.write_byte(addr, time)
 
 At the time of writing, this script will seemingly fail, as it can't recieve a proper ACK from the ATtiny. Regardless, the ATtiny will recieve the time and respond accordingly.
 
+### To connect a Raspberry Pi to the DS1307 RTC
+
+**NOTE**: This guide assumes I2C has been enabled via `sudo raspi-config`
+
+To connect the Raspberry Pi to the HAT's I2C RTC, execute the following commands on the Pi:
+
+```
+echo -e "\n# Configure the DS1307 PILOT Drive HAT\ndtoverlay=i2c-rtc,ds1307" | sudo tee -a /boot/config.txt
+sudo reboot
+```
+
+After reboot, continue with the following:
+```
+# Ensure a "UU" appears
+sudo i2cdetect -y 1
+
+# Remove fake-hwclock
+sudo apt -y remove fake-hwclock
+sudo update-rc.d -f fake-hwclock remove
+```
+
+In `/lib/udev/hwclock-set`, comment out the following lines:
+```
+if [ -e /run/systemd/system ] ; then
+    exit 0
+fi
+```
+
+Write to the hardware clock:
+```
+# Ensure date/time is correct
+date
+
+# Write to the RTC
+sudo hwclock -w
+
+# Ensure hardware clock is correct
+sudo hwclock -r
+```
+
 
 ## NOTES:
 
